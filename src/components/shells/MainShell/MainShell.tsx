@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import cssClasses from "./MainShell.module.css";
+import { fontNotoSans } from "@/components/styling/GlobalCssClasses/functions";
 
 export function MainShell({ children }: { children: ReactNode }) {
 	return (
@@ -16,7 +17,7 @@ function Sidebar() {
 	return (
 		<>
 			<div className={`${cssClasses.sidebar} pt-20`}>
-				<a className="text-3xl font-bold" href="/">Michael Kjellander</a>
+				<a className={`text-3xl font-bold ${fontNotoSans}`} href="/">Michael Kjellander</a>
 			</div>
 		</>
 	);
