@@ -5,7 +5,9 @@
 	width: 30%;
 	height: 100vh;
 	background: white;
-	padding-left: max(calc(35% - 380px), 0px);
+	margin-left: max(calc(35% - 380px), 0px);
+	max-width: 380px;
+	@apply px-16;
 }
 .main {
 	background: #f1f1f1;
