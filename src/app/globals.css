@@ -15,8 +15,10 @@
 }
 
 body {
+/*   
+  TODO: color schemes will be added later
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+  background: rgb(var(--background-start-rgb)); */
   font-family: "Noto Serif", serif;
 }
 
