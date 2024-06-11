@@ -15,7 +15,9 @@ export function MainShell({ children }: { children: ReactNode }) {
 function Sidebar() {
 	return (
 		<>
-			<div className={`${cssClasses.sidebar} pt-20`}>Michael Kjellander</div>
+			<div className={`${cssClasses.sidebar} pt-20`}>
+				<a className="text-3xl font-bold" href="/">Michael Kjellander</a>
+			</div>
 		</>
 	);
 }

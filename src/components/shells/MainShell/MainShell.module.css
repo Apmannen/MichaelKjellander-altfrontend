@@ -2,7 +2,12 @@
 	display: flex;
 }
 .sidebar {
-	width: 200px;
+	width: 30%;
 	height: 100vh;
-	background: red;
+	background: white;
+	padding-left: max(calc(35% - 380px), 0px);
+}
+.main {
+	background: #f1f1f1;
+	flex: 1;
 }
