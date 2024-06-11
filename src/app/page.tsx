@@ -1,14 +1,15 @@
+import { MainShell } from "@/components/shells/MainShell/MainShell";
 import { apiService } from "@/services/apiService";
 
 export default async function Home() {
 	const postsResponse = await apiService.getPosts();
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24">
+		<MainShell>
 			Välkommen!
 			{postsResponse.items.map((post, index) => (
 				<div>Post: {post.title}</div>
 			))}
-		</main>
+		</MainShell>
 	);
 }
