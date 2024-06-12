@@ -1,5 +1,5 @@
 import { MainShell } from '@/components/shells/MainShell/MainShell';
-import { apiService } from '@/modules/services/apiService';
+import { apiService } from '@/modules/apiService';
 
 export default async function Home() {
   const postsResponse = await apiService.getPosts();

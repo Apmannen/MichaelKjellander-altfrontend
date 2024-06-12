@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import css from './MainShell.module.css';
 import { fontNotoSans } from '@/components/styling/GlobalCssClasses/functions';
-import { apiService } from '@/modules/services/apiService';
+import { apiService } from '@/modules/apiService';
 import { paths } from '@/modules/paths';
 import { Category } from '@/modules/models/functions';
 
