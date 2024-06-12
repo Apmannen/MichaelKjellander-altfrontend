@@ -8,8 +8,7 @@ type ApiResponse<T extends Model> = {
 };
 
 export async function getCategoriesMap(): Promise<Map<CategoryType, Category>> {
-  const response = await fetch(BASE_URL + '/categories');
-  const apiResponse = (await response.json()) as ApiResponse<Category>;
+  const apiResponse = await fetchApiResponse<Category>(BASE_URL + '/categories');
 
   const map = new Map<CategoryType, Category>();
   for (let category of apiResponse.items) {
@@ -19,7 +18,10 @@ export async function getCategoriesMap(): Promise<Map<CategoryType, Category>> {
 }
 
 export async function getPosts(): Promise<ApiResponse<Post>> {
-  const response = await fetch(BASE_URL + '/posts');
-  const apiResponse = (await response.json()) as ApiResponse<Post>;
-  return apiResponse;
+  return await fetchApiResponse<Post>(BASE_URL + '/posts');
+}
+
+async function fetchApiResponse<T extends Model>(url: string): Promise<ApiResponse<T>> {
+  const response = await fetch(url);
+  return (await response.json()) as ApiResponse<T>;
 }
