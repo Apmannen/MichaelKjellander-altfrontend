@@ -1,8 +1,9 @@
 import { ReactNode } from 'react';
 import css from './MainShell.module.css';
 import { fontNotoSans } from '@/components/styling/GlobalCssClasses/functions';
+import { apiService } from '@/modules/services/apiService';
 
-export function MainShell({ children }: { children: ReactNode }) {
+export async function MainShell({ children }: { children: ReactNode }) {
   return (
     <>
       <div className={`${css.container}`}>
@@ -13,13 +14,21 @@ export function MainShell({ children }: { children: ReactNode }) {
   );
 }
 
-function Sidebar() {
+async function Sidebar() {
+  const categories = await apiService.getCategories();
+
   return (
     <>
       <div className={`${css.sidebar} pt-20`}>
         <a className={`text-3xl font-bold ${fontNotoSans}`} href="/">
           Michael Kjellander
         </a>
+        <div className="h-20"></div>
+        {categories.map((category, index) => (
+          <a className="block py-2" key={index} href="#">
+            {category.name}
+          </a>
+        ))}
       </div>
     </>
   );

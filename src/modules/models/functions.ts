@@ -1,8 +1,10 @@
 export type Model = {};
 
 export type Category = Model & {
-	slug: string;
-}
+  name: string;
+  slug: string;
+  typeString: 'Unknown' | 'Game' | 'Other' | 'GameReview';
+};
 export type Post = Model & {
-	title: string;
-}
+  title: string;
+};
