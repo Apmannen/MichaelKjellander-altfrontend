@@ -1,1 +1,1 @@
-export * as paths from './wrapper';
+export * as paths from './functions';

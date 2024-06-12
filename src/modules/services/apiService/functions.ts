@@ -1,5 +1,4 @@
 import { Category, CategoryType, Model, Post } from '@/modules/models/functions';
-import { category } from '@/modules/paths/pages';
 
 const BASE_URL = 'https://new.michaelkjellander.se/api/blog';
 

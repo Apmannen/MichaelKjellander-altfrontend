@@ -36,7 +36,7 @@ async function Sidebar() {
 
 function NavMenuLink({ category }: { category: Category }) {
   return (
-    <a className="block py-2" href={paths.pages.category(category.slug)}>
+    <a className="block py-2" href={paths.category(category.slug)}>
       {category.name}
     </a>
   );
