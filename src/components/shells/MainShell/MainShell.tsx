@@ -3,6 +3,7 @@ import css from './MainShell.module.css';
 import { fontNotoSans } from '@/components/styling/GlobalCssClasses/functions';
 import { apiService } from '@/modules/services/apiService';
 import { paths } from '@/modules/paths';
+import { Category } from '@/modules/models/functions';
 
 export async function MainShell({ children }: { children: ReactNode }) {
   return (
@@ -16,7 +17,7 @@ export async function MainShell({ children }: { children: ReactNode }) {
 }
 
 async function Sidebar() {
-  const categories = await apiService.getCategories();
+  const categoryMap = await apiService.getCategoriesMap();
 
   return (
     <>
@@ -25,12 +26,18 @@ async function Sidebar() {
           Michael Kjellander
         </a>
         <div className="h-20"></div>
-        {categories.map((category, index) => (
-          <a className="block py-2" key={index} href={paths.pages.category(category.slug)}>
-            {category.name}
-          </a>
-        ))}
+        <NavMenuLink category={categoryMap.get('Game')!} />
+        <NavMenuLink category={categoryMap.get('GameReview')!} />
+        <NavMenuLink category={categoryMap.get('Other')!} />
       </div>
     </>
+  );
+}
+
+function NavMenuLink({ category }: { category: Category }) {
+  return (
+    <a className="block py-2" href={paths.pages.category(category.slug)}>
+      {category.name}
+    </a>
   );
 }
